@@ -29,21 +29,19 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 20px 8%;
+            padding: 15px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 100;
-            background: linear-gradient(to bottom, rgba(10,10,10,0.8), transparent);
+            background: linear-gradient(to bottom, rgba(10,10,10,0.9), transparent);
             box-sizing: border-box;
         }
 
-        .logo {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            text-decoration: none;
+        .logo-img {
+            height: 50px; /* Ajusta la altura de tu logo aquí */
+            width: auto;
+            display: block;
         }
 
         .nav-links a {
@@ -54,6 +52,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: 0.3s;
+            font-weight: 700;
         }
 
         .nav-links a:hover { color: var(--primary); }
@@ -61,8 +60,9 @@
         /* --- HERO SECTION --- */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.2), var(--bg-dark)), 
-                        url('https://images.alphacoders.com/133/1337424.png'); 
+            /* Aquí usamos wall.jpg con un degradado para que el texto resalte */
+            background: linear-gradient(rgba(0,0,0,0.3), var(--bg-dark)), 
+                        url('wall.jpg'); 
             background-size: cover;
             background-position: center;
             display: flex;
@@ -89,6 +89,7 @@
             font-size: 1.1rem;
             color: var(--text-dim);
             margin: 25px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         /* --- PROJECTS SECTION --- */
@@ -200,7 +201,9 @@
 <body>
 
     <nav>
-        <a href="#" class="logo">21YM STUDIO</a>
+        <a href="#">
+            <img src="logo1.png" alt="21YM Studio Logo" class="logo-img">
+        </a>
         <div class="nav-links">
             <a href="#projects">Projects</a>
             <a href="https://ko-fi.com/eycodev">Support</a>
@@ -213,7 +216,7 @@
             <p class="hero-description">
                 Crafting minimalist experiences and epic adventures. From cozy reading sanctuaries to 100-level RPG journeys.
             </p>
-            <a href="#projects" class="social-icons" style="width: auto; padding: 0 20px; border-radius: 5px; background: var(--primary); color: black; font-weight: bold; height: 45px; display: inline-flex;">
+            <a href="#projects" style="text-decoration:none; width: auto; padding: 0 25px; border-radius: 5px; background: var(--primary); color: black; font-weight: 900; height: 50px; display: inline-flex; align-items: center; font-family: 'Oswald', sans-serif; letter-spacing: 1px;">
                 VIEW OUR WORK
             </a>
         </div>
