@@ -3,198 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>21YM Studio | Digital Crafting & Development</title>
+    <title>21YM Studio | Independent Game Dev</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0f172a;
-            --card: #1e293b;
-            --accent: #6366f1;
-            --accent-hover: #818cf8;
-            --text-main: #f8fafc;
-            --text-dim: #94a3b8;
-            --kofi: #29abe0;
-            --tiktok: #ff0050;
-            --instagram: #e1306c;
+            --primary: #00ffa3; 
+            --bg-dark: #0a0a0a;
+            --card-bg: #161b22;
+            --text-main: #ffffff;
+            --text-dim: #a0a0a0;
         }
-        body {
+
+        body, html {
             margin: 0;
             padding: 0;
-            background-color: var(--bg);
+            background-color: var(--bg-dark);
+            font-family: 'Inter', sans-serif;
             color: var(--text-main);
-            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 8%;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            min-height: 100vh;
+            z-index: 100;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.8), transparent);
+            box-sizing: border-box;
         }
-        .main-card {
-            width: 90%;
-            max-width: 600px;
-            padding: 50px 40px;
-            background: var(--card);
-            border-radius: 20px;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.6);
-            border: 1px solid rgba(255,255,255,0.05);
-            text-align: center;
-        }
-        .studio-name {
-            font-size: 2.8rem;
+
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
             font-weight: 800;
-            margin: 0;
-            background: linear-gradient(to right, #818cf8, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -1.5px;
+            color: var(--primary);
+            text-decoration: none;
         }
-        .tagline {
-            color: var(--text-dim);
-            font-size: 1rem;
-            margin-top: 12px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 600;
-        }
-        .divider {
-            height: 1px;
-            background: rgba(255,255,255,0.08);
-            margin: 35px 0;
-        }
-        .section-title {
-            text-align: left;
-            color: var(--text-dim);
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
             font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 15px;
-            font-weight: 700;
+            letter-spacing: 1px;
+            transition: 0.3s;
         }
-        .project-section {
-            text-align: left;
-        }
-        .project-item {
+
+        .nav-links a:hover { color: var(--primary); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.2), var(--bg-dark)), 
+                        url('https://images.alphacoders.com/133/1337424.png'); 
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
-            padding: 18px;
-            background: rgba(255,255,255,0.02);
-            border-radius: 14px;
-            margin-bottom: 15px;
-            border: 1px solid transparent;
-            transition: all 0.3s ease;
+            padding: 0 8%;
         }
-        .project-item:hover {
-            border-color: rgba(99, 102, 241, 0.3);
-            background: rgba(99, 102, 241, 0.04);
-            transform: translateY(-2px);
-        }
-        .project-icon {
-            font-size: 1.8rem;
-            margin-right: 18px;
-        }
-        .project-info h3 {
+
+        .hero-content h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(3rem, 12vw, 7rem);
+            line-height: 0.9;
             margin: 0;
+            text-transform: uppercase;
+        }
+
+        .hero-content h1 span {
+            display: block;
+            -webkit-text-stroke: 1.5px white;
+            color: transparent;
+        }
+
+        .hero-description {
+            max-width: 500px;
             font-size: 1.1rem;
-            font-weight: 700;
-        }
-        .project-info p {
-            margin: 4px 0 0 0;
-            font-size: 0.9rem;
             color: var(--text-dim);
-            line-height: 1.4;
+            margin: 25px 0;
         }
-        .status {
-            margin-left: auto;
+
+        /* --- PROJECTS SECTION --- */
+        .section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            border-left: 4px solid var(--primary);
+            padding-left: 20px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            text-decoration: none;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            background: rgba(0, 255, 163, 0.03);
+        }
+
+        .project-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .project-card h3 { margin: 10px 0; font-size: 1.4rem; }
+        .project-card p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.5; }
+
+        .tag {
+            display: inline-block;
             font-size: 0.7rem;
-            background: #334155;
+            font-weight: bold;
             padding: 5px 12px;
             border-radius: 20px;
-            font-weight: 700;
-            color: #f1f5f9;
+            background: #334155;
+            margin-top: 15px;
         }
-        .social-section {
+
+        /* --- SOCIAL & FOOTER --- */
+        .social-footer {
+            background: #050505;
+            padding: 60px 8%;
+            text-align: center;
+        }
+
+        .social-icons {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
+            gap: 20px;
+            margin-bottom: 30px;
         }
-        .social-btn {
+
+        .social-icons a {
+            width: 50px;
+            height: 50px;
+            background: var(--card-bg);
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.05);
-            color: var(--text-main);
-            font-size: 1.3rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .social-btn:hover {
-            transform: scale(1.1);
+            border-radius: 10px;
             color: white;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.05);
         }
-        .social-btn.kofi:hover { background-color: var(--kofi); border-color: var(--kofi); }
-        .social-btn.tiktok:hover { background-color: var(--tiktok); border-color: var(--tiktok); }
-        .social-btn.instagram:hover { background-color: var(--instagram); border-color: var(--instagram); }
 
-        .footer {
-            margin-top: 40px;
+        .social-icons a:hover {
+            background: var(--primary);
+            color: black;
+            transform: scale(1.1);
+        }
+
+        footer {
+            color: #444;
             font-size: 0.8rem;
-            color: #475569;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 3.5rem; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
-    <div class="main-card">
-        <h1 class="studio-name">21YM Studio</h1>
-        <div class="tagline">Independent Digital Crafting</div>
-        
-        <div class="divider"></div>
-        
-        <div class="project-section">
-            <div class="section-title">Current Projects</div>
+
+    <nav>
+        <a href="#" class="logo">21YM STUDIO</a>
+        <div class="nav-links">
+            <a href="#projects">Projects</a>
+            <a href="https://ko-fi.com/eycodev">Support</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>WE MAKE <span>GAMES</span></h1>
+            <p class="hero-description">
+                Crafting minimalist experiences and epic adventures. From cozy reading sanctuaries to 100-level RPG journeys.
+            </p>
+            <a href="#projects" class="social-icons" style="width: auto; padding: 0 20px; border-radius: 5px; background: var(--primary); color: black; font-weight: bold; height: 45px; display: inline-flex;">
+                VIEW OUR WORK
+            </a>
+        </div>
+    </section>
+
+    <section class="section" id="projects">
+        <h2 class="section-title">Our Projects</h2>
+        <div class="project-grid">
             
-            <a href="cozy-books.html" style="text-decoration: none; color: inherit; display: block;">
-    <div class="project-item">
-        <span class="project-icon">📚</span>
-        <div class="project-info">
-            <h3>My Cozy Books</h3>
-            <p>Minimalist Reading Tracker & Library Organizer</p>
-        </div>
-        <span class="status">BETA</span>
-    </div>
-</a>
+            <a href="cozy-books.html" class="project-card">
+                <i class="fas fa-book-open"></i>
+                <h3>My Cozy Books</h3>
+                <p>A minimalist library organizer and reading tracker designed for a peaceful experience.</p>
+                <span class="tag" style="color: var(--primary);">BETA AVAILABLE</span>
+            </a>
 
-            <div class="project-item">
-                <span class="project-icon">⚔️</span>
-                <div class="project-info">
-                    <h3>IN DEVELOPMENT RPG</h3>
-                    <p>Turn-based Journey</p>
-                </div>
-                <span class="status" style="color: #fbbf24; background: rgba(251, 191, 36, 0.1);">IN DEVELOPMENT</span>
+            <div class="project-card">
+                <i class="fas fa-scroll"></i>
+                <h3>Aethelgard RPG</h3>
+                <p>An ambitious turn-based RPG featuring 100 unique zones of progression and mystery.</p>
+                <span class="tag" style="color: #fbbf24;">IN DEVELOPMENT</span>
             </div>
-        </div>
 
-        <div class="divider"></div>
-        
-        <div class="section-title">Connect with the developer</div>
-        <div class="social-section">
-            <a href="https://ko-fi.com/eycodev" class="social-btn kofi" title="Support on Ko-fi" target="_blank">
-                <i class="fas fa-coffee"></i>
-            </a>
-            <a href="https://www.tiktok.com/@eyco.dev" class="social-btn tiktok" title="Follow on TikTok" target="_blank">
-                <i class="fab fa-tiktok"></i>
-            </a>
-            <a href="https://www.instagram.com/eyco_dev/" class="social-btn instagram" title="Follow on Instagram" target="_blank">
-                <i class="fab fa-instagram"></i>
-            </a>
         </div>
+    </section>
 
-        <div class="footer">
+    <section class="social-footer">
+        <h2 class="section-title" style="border:none; text-align:center; padding:0;">Connect</h2>
+        <div class="social-icons">
+            <a href="https://ko-fi.com/eycodev" title="Ko-fi"><i class="fas fa-coffee"></i></a>
+            <a href="https://www.tiktok.com/@eyco.dev" title="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.instagram.com/eyco_dev/" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <footer>
             &copy; 2026 21YM Studio. All rights reserved.
-        </div>
-    </div>
+        </footer>
+    </section>
+
 </body>
 </html>
