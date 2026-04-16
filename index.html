@@ -4,8 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>21YM Studio | Independent Game Dev</title>
+    
+    <link rel="icon" type="image/png" href="logo1.png">
+
+    <meta property="og:title" content="21YM Studio | Independent Game Dev">
+    <meta property="og:description" content="Crafting experiences from epic adventures to cozy apps.">
+    <meta property="og:image" content="wall.jpg">
+    <meta property="og:url" content="https://21ym.github.io/ym21studio.github.io/">
+    <meta name="twitter:card" content="summary_large_image">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --primary: #00ffa3; 
@@ -22,6 +32,14 @@
             font-family: 'Inter', sans-serif;
             color: var(--text-main);
             scroll-behavior: smooth;
+        }
+
+        /* Translator Widget Style */
+        .translate-container {
+            position: absolute;
+            top: 10px;
+            right: 8%;
+            z-index: 200;
         }
 
         /* --- NAVIGATION --- */
@@ -42,7 +60,7 @@
             display: flex;
             align-items: center;
             text-decoration: none;
-            gap: 12px; /* Espacio entre logo y texto */
+            gap: 12px;
             transition: 0.3s;
         }
 
@@ -211,14 +229,35 @@
             letter-spacing: 2px;
         }
 
+        .footer-links {
+            margin-top: 20px;
+        }
+
+        .footer-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.75rem;
+            margin: 0 15px;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero-content h1 { font-size: 3.5rem; }
             .nav-links { display: none; }
+            .translate-container { right: 20px; }
         }
     </style>
 </head>
 <body>
+
+    <div class="translate-container">
+        <div id="google_translate_element"></div>
+    </div>
 
     <nav>
         <a href="#" class="logo-container">
@@ -273,8 +312,18 @@
         </div>
         <footer>
             &copy; 2026 21YM Studio. All rights reserved.
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
         </footer>
     </section>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
