@@ -1,2 +1,131 @@
-<h1>Welcome to 21YM Studio</h1>
-<p>My Cozy Books official website. Our app is currently in testing.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21YM Studio | Independent Game & App Development</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --accent: #6366f1;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .main-card {
+            width: 90%;
+            max-width: 600px;
+            padding: 40px;
+            background: var(--card);
+            border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+        }
+        .studio-name {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0;
+            background: linear-gradient(to right, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+        .tagline {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+        .divider {
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+            margin: 30px 0;
+        }
+        .project-section {
+            text-align: left;
+        }
+        .project-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border: 1px solid transparent;
+            transition: 0.3s;
+        }
+        .project-item:hover {
+            border-color: var(--accent);
+            background: rgba(99, 102, 241, 0.05);
+        }
+        .project-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+        .project-info h3 {
+            margin: 0;
+            font-size: 1rem;
+        }
+        .project-info p {
+            margin: 2px 0 0 0;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+        .status {
+            margin-left: auto;
+            font-size: 0.7rem;
+            background: #334155;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-card">
+        <h1 class="studio-name">21YM Studio</h1>
+        <div class="tagline">Digital Crafting & Development</div>
+        
+        <div class="divider"></div>
+        
+        <div class="project-section">
+            <div class="project-item">
+                <span class="project-icon">📚</span>
+                <div class="project-info">
+                    <h3>My Cozy Books</h3>
+                    <p>Minimalist Reading Tracker & Library Organizer</p>
+                </div>
+                <span class="status">BETA</span>
+            </div>
+
+            <div class="project-item">
+                <span class="project-icon">⚔️</span>
+                <div class="project-info">
+                    <h3>Unnamed RPG Project</h3>
+                    <p>Level-based Turn-based Adventure (Zones 1-100)</p>
+                </div>
+                <span class="status" style="color: #fbbf24;">IN DEVELOPMENT</span>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+        <div style="font-size: 0.8rem; color: #475569;">
+            &copy; 2026 21YM Studio. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>
