@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cozy Books | Beta Testing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #fdfaf5;
+            --card: #ffffff;
+            --accent: #9b86bd; /* Lila Cozy */
+            --coffee: #6f4e37;
+            --text: #4a4a4a;
+        }
+        body {
+            margin: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: var(--card);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(111, 78, 55, 0.05);
+            text-align: center;
+            border: 1px solid #eee5d8;
+        }
+        .app-icon { font-size: 4rem; margin-bottom: 10px; }
+        h1 { color: var(--coffee); font-size: 2.2rem; margin-bottom: 10px; }
+        .description { font-style: italic; color: #888; margin-bottom: 30px; }
+        
+        /* Sistema de Pestañas */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            background: #f1ede4;
+            padding: 5px;
+            border-radius: 15px;
+        }
+        .tab-btn {
+            padding: 10px 20px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            border-radius: 10px;
+            font-weight: 600;
+            color: #a09383;
+            transition: 0.3s;
+        }
+        .tab-btn.active {
+            background: var(--card);
+            color: var(--coffee);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .content { display: none; text-align: left; line-height: 1.6; }
+        .content.active { display: block; }
+
+        .step-card {
+            background: #fdfbf8;
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 15px 15px 0;
+        }
+        .btn-link {
+            display: inline-block;
+            margin-top: 10px;
+            background: var(--accent);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-link:hover { opacity: 0.9; transform: scale(1.02); }
+        
+        .back-link {
+            display: block;
+            margin-top: 40px;
+            color: #bcaaa4;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="app-icon">📚</div>
+        <h1>My Cozy Books</h1>
+        <p class="description">Your minimalist reading sanctuary</p>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'es')">🇪🇸 ES</button>
+            <button class="tab-btn" onclick="openTab(event, 'en')">🇺🇸 EN</button>
+            <button class="tab-btn" onclick="openTab(event, 'pt')">🇧🇷 PT</button>
+        </div>
+
+        <div id="es" class="content active">
+            <p>¡Hola! ☕📚 Necesito tu ayuda para My Cozy Books. Estoy a un paso de lanzar mi app y me encantaría que fueras de los primeros en probarla.</p>
+            <div class="step-card">
+                <strong>1️⃣ Entra al club de testers:</strong><br>
+                <a href="https://groups.google.com/g/ym21studio-testers" class="btn-link" target="_blank">Unirse al grupo</a>
+            </div>
+            <div class="step-card">
+                <strong>2️⃣ Acepta la invitación:</strong><br>
+                <a href="https://play.google.com/apps/testing/com.ym21.cozy_books" class="btn-link" target="_blank">Convertirse en tester</a>
+            </div>
+            <p>✨ ¡Listo! Ya puedes descargarla desde la Play Store. ¡Gracias por ayudarme con tus sugerencias!</p>
+        </div>
+
+        <div id="en" class="content">
+            <p>Hi there! ☕📚 I need your help. I'm just one step away from launching my reading tracker app, and I'd love for you to try it.</p>
+            <div class="step-card">
+                <strong>1️⃣ Join the testers' club:</strong><br>
+                <a href="https://groups.google.com/g/ym21studio-testers" class="btn-link" target="_blank">Join group</a>
+            </div>
+            <div class="step-card">
+                <strong>2️⃣ Accept invitation:</strong><br>
+                <a href="https://play.google.com/apps/testing/com.ym21.cozy_books" class="btn-link" target="_blank">Become a tester</a>
+            </div>
+            <p>✨ That's it! You can now download it from the Play Store. Any feedback is greatly appreciated!</p>
+        </div>
+
+        <div id="pt" class="content">
+            <p>Olá! ☕📚 Preciso da sua ajuda. Estou a um passo de lançar meu app e adoraria que você fosse um dos primeiros a testá-lo.</p>
+            <div class="step-card">
+                <strong>1️⃣ Entre no clube de testers:</strong><br>
+                <a href="https://groups.google.com/g/ym21studio-testers" class="btn-link" target="_blank">Participar do grupo</a>
+            </div>
+            <div class="step-card">
+                <strong>2️⃣ Aceite o convite:</strong><br>
+                <a href="https://play.google.com/apps/testing/com.ym21.cozy_books" class="btn-link" target="_blank">Tornar-se um testador</a>
+            </div>
+            <p>✨ E pronto! Agora você já pode baixá-lo na Play Store. Muito obrigado pela ajuda!</p>
+        </div>
+
+        <a href="index.html" class="back-link">← Volver a 21YM Studio</a>
+    </div>
+
+    <script>
+        function openTab(evt, lang) {
+            var i, content, tablinks;
+            content = document.getElementsByClassName("content");
+            for (i = 0; i < content.length; i++) { content[i].style.display = "none"; }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
+            document.getElementById(lang).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>
