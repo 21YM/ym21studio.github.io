@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>21YM Studio | Independent Game & App Development</title>
+    <title>21YM Studio | Digital Crafting & Development</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --bg: #0f172a;
             --card: #1e293b;
             --accent: #6366f1;
+            --accent-hover: #818cf8;
             --text-main: #f8fafc;
             --text-dim: #94a3b8;
+            --kofi: #29abe0;
+            --tiktok: #ff0050;
+            --instagram: #e1306c;
         }
         body {
             margin: 0;
@@ -26,34 +31,43 @@
         .main-card {
             width: 90%;
             max-width: 600px;
-            padding: 40px;
+            padding: 50px 40px;
             background: var(--card);
-            border-radius: 16px;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.6);
             border: 1px solid rgba(255,255,255,0.05);
             text-align: center;
         }
         .studio-name {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 800;
             margin: 0;
             background: linear-gradient(to right, #818cf8, #c084fc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: -1px;
+            letter-spacing: -1.5px;
         }
         .tagline {
             color: var(--text-dim);
-            font-size: 1.1rem;
-            margin-top: 10px;
+            font-size: 1rem;
+            margin-top: 12px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 500;
+            letter-spacing: 3px;
+            font-weight: 600;
         }
         .divider {
             height: 1px;
-            background: rgba(255,255,255,0.1);
-            margin: 30px 0;
+            background: rgba(255,255,255,0.08);
+            margin: 35px 0;
+        }
+        .section-title {
+            text-align: left;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            font-weight: 700;
         }
         .project-section {
             text-align: left;
@@ -61,48 +75,87 @@
         .project-item {
             display: flex;
             align-items: center;
-            padding: 15px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 12px;
+            padding: 18px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 14px;
             margin-bottom: 15px;
             border: 1px solid transparent;
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
         .project-item:hover {
-            border-color: var(--accent);
-            background: rgba(99, 102, 241, 0.05);
+            border-color: rgba(99, 102, 241, 0.3);
+            background: rgba(99, 102, 241, 0.04);
+            transform: translateY(-2px);
         }
         .project-icon {
-            font-size: 1.5rem;
-            margin-right: 15px;
+            font-size: 1.8rem;
+            margin-right: 18px;
         }
         .project-info h3 {
             margin: 0;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            font-weight: 700;
         }
         .project-info p {
-            margin: 2px 0 0 0;
-            font-size: 0.85rem;
+            margin: 4px 0 0 0;
+            font-size: 0.9rem;
             color: var(--text-dim);
+            line-height: 1.4;
         }
         .status {
             margin-left: auto;
             font-size: 0.7rem;
             background: #334155;
-            padding: 4px 10px;
+            padding: 5px 12px;
             border-radius: 20px;
-            font-weight: 600;
+            font-weight: 700;
+            color: #f1f5f9;
+        }
+        .social-section {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-main);
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .social-btn:hover {
+            transform: scale(1.1);
+            color: white;
+        }
+        .social-btn.kofi:hover { background-color: var(--kofi); border-color: var(--kofi); }
+        .social-btn.tiktok:hover { background-color: var(--tiktok); border-color: var(--tiktok); }
+        .social-btn.instagram:hover { background-color: var(--instagram); border-color: var(--instagram); }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: #475569;
         }
     </style>
 </head>
 <body>
     <div class="main-card">
         <h1 class="studio-name">21YM Studio</h1>
-        <div class="tagline">Digital Crafting & Development</div>
+        <div class="tagline">Independent Digital Crafting</div>
         
         <div class="divider"></div>
         
         <div class="project-section">
+            <div class="section-title">Current Projects</div>
+            
             <div class="project-item">
                 <span class="project-icon">📚</span>
                 <div class="project-info">
@@ -115,15 +168,29 @@
             <div class="project-item">
                 <span class="project-icon">⚔️</span>
                 <div class="project-info">
-                    <h3>Unnamed RPG Project</h3>
-                    <p>Level-based Turn-based Adventure (Zones 1-100)</p>
+                    <h3>IN DEVELOPMENT</h3>
+                    <p>Turn-based Journey</p>
                 </div>
-                <span class="status" style="color: #fbbf24;">IN DEVELOPMENT</span>
+                <span class="status" style="color: #fbbf24; background: rgba(251, 191, 36, 0.1);">IN DEVELOPMENT</span>
             </div>
         </div>
 
         <div class="divider"></div>
-        <div style="font-size: 0.8rem; color: #475569;">
+        
+        <div class="section-title">Connect with the developer</div>
+        <div class="social-section">
+            <a href="https://ko-fi.com/eycodev" class="social-btn kofi" title="Support on Ko-fi" target="_blank">
+                <i class="fas fa-coffee"></i>
+            </a>
+            <a href="https://www.tiktok.com/@eyco.dev" class="social-btn tiktok" title="Follow on TikTok" target="_blank">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://www.instagram.com/eyco_dev/" class="social-btn instagram" title="Follow on Instagram" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+
+        <div class="footer">
             &copy; 2026 21YM Studio. All rights reserved.
         </div>
     </div>
