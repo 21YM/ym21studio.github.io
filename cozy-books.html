@@ -1,15 +1,22 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Cozy Books | Beta Testing</title>
+    
+    <link rel="icon" type="image/png" href="logo1.png">
+
+    <meta property="og:title" content="Join My Cozy Books Beta">
+    <meta property="og:description" content="Help us test our minimalist reading sanctuary.">
+    <meta property="og:image" content="wall.jpg">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --bg: #fdfaf5;
             --card: #ffffff;
-            --accent: #9b86bd; /* Lila Cozy */
+            --accent: #9b86bd; 
             --coffee: #6f4e37;
             --text: #4a4a4a;
         }
@@ -98,15 +105,15 @@
     <div class="container">
         <div class="app-icon">📚</div>
         <h1>My Cozy Books</h1>
-        <p class="description">Your minimalist reading sanctuary</p>
+        <p class="description" id="page-desc">Your minimalist reading sanctuary</p>
 
         <div class="tabs">
-            <button class="tab-btn active" onclick="openTab(event, 'es')">🇪🇸 ES</button>
-            <button class="tab-btn" onclick="openTab(event, 'en')">🇺🇸 EN</button>
-            <button class="tab-btn" onclick="openTab(event, 'pt')">🇧🇷 PT</button>
+            <button class="tab-btn" id="btn-es" onclick="openTab('es')">🇪🇸 ES</button>
+            <button class="tab-btn" id="btn-en" onclick="openTab('en')">🇺🇸 EN</button>
+            <button class="tab-btn" id="btn-pt" onclick="openTab('pt')">🇧🇷 PT</button>
         </div>
 
-        <div id="es" class="content active">
+        <div id="es" class="content">
             <p>¡Hola! ☕📚 Necesito tu ayuda para My Cozy Books. Estoy a un paso de lanzar mi app y me encantaría que fueras de los primeros en probarla.</p>
             <div class="step-card">
                 <strong>1️⃣ Entra al club de testers:</strong><br>
@@ -116,7 +123,7 @@
                 <strong>2️⃣ Acepta la invitación:</strong><br>
                 <a href="https://play.google.com/apps/testing/com.ym21.cozy_books" class="btn-link" target="_blank">Convertirse en tester</a>
             </div>
-            <p>✨ ¡Listo! Ya puedes descargarla desde la Play Store. ¡Gracias por ayudarme con tus sugerencias!</p>
+            <p>✨ ¡Listo! Ya puedes descargarla desde la Play Store. ¡Gracias por tu ayuda!</p>
         </div>
 
         <div id="en" class="content">
@@ -129,7 +136,7 @@
                 <strong>2️⃣ Accept invitation:</strong><br>
                 <a href="https://play.google.com/apps/testing/com.ym21.cozy_books" class="btn-link" target="_blank">Become a tester</a>
             </div>
-            <p>✨ That's it! You can now download it from the Play Store. Any feedback is greatly appreciated!</p>
+            <p>✨ That's it! You can now download it from the Play Store. Thanks for your support!</p>
         </div>
 
         <div id="pt" class="content">
@@ -145,19 +152,37 @@
             <p>✨ E pronto! Agora você já pode baixá-lo na Play Store. Muito obrigado pela ajuda!</p>
         </div>
 
-        <a href="index.html" class="back-link">← Volver a 21YM Studio</a>
+        <a href="index.html" class="back-link" id="back-txt">← Back to 21YM Studio</a>
     </div>
 
     <script>
-        function openTab(evt, lang) {
-            var i, content, tablinks;
-            content = document.getElementsByClassName("content");
-            for (i = 0; i < content.length; i++) { content[i].style.display = "none"; }
-            tablinks = document.getElementsByClassName("tab-btn");
-            for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
+        function openTab(lang) {
+            // Ocultar todos
+            const contents = document.getElementsByClassName("content");
+            for (let i = 0; i < contents.length; i++) { contents[i].style.display = "none"; }
+            
+            // Desactivar botones
+            const tabs = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < tabs.length; i++) { tabs[i].classList.remove("active"); }
+            
+            // Mostrar seleccionado
             document.getElementById(lang).style.display = "block";
-            evt.currentTarget.className += " active";
+            document.getElementById('btn-' + lang).classList.add("active");
+
+            // Textos pequeños fuera de las pestañas
+            const backTxt = document.getElementById('back-txt');
+            if(lang === 'es') backTxt.innerText = "← Volver a 21YM Studio";
+            else if(lang === 'pt') backTxt.innerText = "← Voltar para 21YM Studio";
+            else backTxt.innerText = "← Back to 21YM Studio";
         }
+
+        // Auto-detectar idioma
+        window.onload = () => {
+            const userLang = navigator.language.substring(0, 2);
+            if (userLang === 'es') openTab('es');
+            else if (userLang === 'pt') openTab('pt');
+            else openTab('en');
+        };
     </script>
 </body>
 </html>
