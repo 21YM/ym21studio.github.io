@@ -10,8 +10,6 @@
     <meta property="og:title" content="21YM Studio | Independent Game Dev">
     <meta property="og:description" content="Crafting experiences from epic adventures to cozy apps.">
     <meta property="og:image" content="wall.jpg">
-    <meta property="og:url" content="https://21ym.github.io/ym21studio.github.io/">
-    <meta name="twitter:card" content="summary_large_image">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
@@ -26,304 +24,185 @@
         }
 
         body, html {
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-dark);
-            font-family: 'Inter', sans-serif;
-            color: var(--text-main);
-            scroll-behavior: smooth;
-        }
-
-        /* Translator Widget Style */
-        .translate-container {
-            position: absolute;
-            top: 10px;
-            right: 8%;
-            z-index: 200;
+            margin: 0; padding: 0; background-color: var(--bg-dark);
+            font-family: 'Inter', sans-serif; color: var(--text-main); scroll-behavior: smooth;
         }
 
         /* --- NAVIGATION --- */
         nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 15px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-            background: linear-gradient(to bottom, rgba(10,10,10,0.9), transparent);
+            position: fixed; top: 0; width: 100%; padding: 15px 8%;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 100; background: linear-gradient(to bottom, rgba(10,10,10,0.9), transparent);
             box-sizing: border-box;
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            gap: 12px;
-            transition: 0.3s;
-        }
+        .logo-container { display: flex; align-items: center; text-decoration: none; gap: 12px; }
+        .logo-img { height: 45px; width: auto; }
+        .logo-text { font-family: 'Oswald', sans-serif; font-size: 1.4rem; font-weight: 800; color: white; letter-spacing: 1.5px; text-transform: uppercase; }
+        .logo-container:hover .logo-text { color: var(--primary); }
 
-        .logo-img {
-            height: 45px;
-            width: auto;
-            display: block;
-        }
-
-        .logo-text {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: white;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
-
-        .logo-container:hover .logo-text {
-            color: var(--primary);
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
-            font-weight: 700;
-        }
-
+        .nav-links a { color: white; text-decoration: none; margin-left: 25px; font-size: 0.8rem; text-transform: uppercase; font-weight: 700; transition: 0.3s; }
         .nav-links a:hover { color: var(--primary); }
 
         /* --- HERO SECTION --- */
         .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.3), var(--bg-dark)), 
-                        url('wall.jpg'); 
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            padding: 0 8%;
+            height: 100vh; background: linear-gradient(rgba(0,0,0,0.3), var(--bg-dark)), url('wall.jpg');
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; padding: 0 8%;
         }
 
-        .hero-content h1 {
-            font-family: 'Oswald', sans-serif;
-            font-size: clamp(3rem, 12vw, 7rem);
-            line-height: 0.9;
-            margin: 0;
-            text-transform: uppercase;
+        .hero-content h1 { font-family: 'Oswald', sans-serif; font-size: clamp(3rem, 12vw, 7rem); line-height: 0.9; margin: 0; text-transform: uppercase; }
+        .hero-content h1 span { display: block; -webkit-text-stroke: 1.5px white; color: transparent; }
+
+        .hero-description { max-width: 500px; font-size: 1.1rem; color: var(--text-dim); margin: 25px 0; }
+
+        .btn-work {
+            text-decoration: none; width: auto; padding: 0 25px; border-radius: 5px;
+            background: var(--primary); color: black; font-weight: 900; height: 50px;
+            display: inline-flex; align-items: center; font-family: 'Oswald', sans-serif;
         }
 
-        .hero-content h1 span {
-            display: block;
-            -webkit-text-stroke: 1.5px white;
-            color: transparent;
-        }
+        /* --- PROJECTS --- */
+        .section { padding: 80px 8%; }
+        .section-title { font-family: 'Oswald', sans-serif; font-size: 2.5rem; margin-bottom: 40px; text-transform: uppercase; border-left: 4px solid var(--primary); padding-left: 20px; }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .project-card { background: var(--card-bg); border-radius: 15px; padding: 30px; text-decoration: none; color: white; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
+        .project-card:hover { transform: translateY(-10px); border-color: var(--primary); background: rgba(0, 255, 163, 0.03); }
+        .project-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+        .tag { display: inline-block; font-size: 0.7rem; font-weight: bold; padding: 5px 12px; border-radius: 20px; background: #334155; margin-top: 15px; }
 
-        .hero-description {
-            max-width: 500px;
-            font-size: 1.1rem;
-            color: var(--text-dim);
-            margin: 25px 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
+        /* --- FOOTER --- */
+        .social-footer { background: #050505; padding: 60px 8%; text-align: center; }
+        .social-icons { display: flex; justify-content: center; gap: 20px; margin-bottom: 30px; }
+        .social-icons a { width: 50px; height: 50px; background: var(--card-bg); display: flex; align-items: center; justify-content: center; border-radius: 10px; color: white; transition: 0.3s; }
+        .social-icons a:hover { background: var(--primary); color: black; transform: scale(1.1); }
+        
+        .lang-switcher { margin-bottom: 20px; }
+        .lang-btn { background: none; border: 1px solid #333; color: #666; padding: 5px 10px; cursor: pointer; border-radius: 5px; font-size: 0.7rem; margin: 0 5px; transition: 0.3s; }
+        .lang-btn:hover, .lang-btn.active { border-color: var(--primary); color: var(--primary); }
 
-        /* --- PROJECTS SECTION --- */
-        .section {
-            padding: 80px 8%;
-        }
+        footer { color: #444; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; }
+        .footer-links { margin-top: 15px; }
+        .footer-links a { color: #666; text-decoration: none; font-size: 0.75rem; margin: 0 10px; }
 
-        .section-title {
-            font-family: 'Oswald', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            border-left: 4px solid var(--primary);
-            padding-left: 20px;
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 30px;
-            text-decoration: none;
-            color: white;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            background: rgba(0, 255, 163, 0.03);
-        }
-
-        .project-card i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-
-        .project-card h3 { margin: 10px 0; font-size: 1.4rem; }
-        .project-card p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.5; }
-
-        .tag {
-            display: inline-block;
-            font-size: 0.7rem;
-            font-weight: bold;
-            padding: 5px 12px;
-            border-radius: 20px;
-            background: #334155;
-            margin-top: 15px;
-        }
-
-        /* --- SOCIAL & FOOTER --- */
-        .social-footer {
-            background: #050505;
-            padding: 60px 8%;
-            text-align: center;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .social-icons a {
-            width: 50px;
-            height: 50px;
-            background: var(--card-bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            color: white;
-            font-size: 1.2rem;
-            text-decoration: none;
-            transition: 0.3s;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .social-icons a:hover {
-            background: var(--primary);
-            color: black;
-            transform: scale(1.1);
-        }
-
-        footer {
-            color: #444;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .footer-links {
-            margin-top: 20px;
-        }
-
-        .footer-links a {
-            color: #666;
-            text-decoration: none;
-            font-size: 0.75rem;
-            margin: 0 15px;
-            transition: 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 3.5rem; }
-            .nav-links { display: none; }
-            .translate-container { right: 20px; }
-        }
+        @media (max-width: 768px) { .hero-content h1 { font-size: 3.5rem; } .nav-links { display: none; } }
     </style>
 </head>
 <body>
 
-    <div class="translate-container">
-        <div id="google_translate_element"></div>
-    </div>
-
     <nav>
         <a href="#" class="logo-container">
-            <img src="logo1.png" alt="21YM Studio Logo" class="logo-img">
+            <img src="logo1.png" alt="Logo" class="logo-img">
             <span class="logo-text">YM21STUDIO</span>
         </a>
         <div class="nav-links">
-            <a href="#projects">Projects</a>
-            <a href="https://ko-fi.com/eycodev">Support</a>
+            <a href="#projects" id="nav-projects">Projects</a>
+            <a href="https://ko-fi.com/eycodev" id="nav-support">Support</a>
         </div>
     </nav>
 
     <section class="hero">
         <div class="hero-content">
-            <h1>THE BEST <span>GAMES AND APPS</span></h1>
-            <p class="hero-description">
-                Crafting experiences from epic adventures to cozy apps.
-            </p>
-            <a href="#projects" style="text-decoration:none; width: auto; padding: 0 25px; border-radius: 5px; background: var(--primary); color: black; font-weight: 900; height: 50px; display: inline-flex; align-items: center; font-family: 'Oswald', sans-serif; letter-spacing: 1px;">
-                VIEW OUR WORK
-            </a>
+            <h1 id="hero-title">THE BEST <span>GAMES AND APPS</span></h1>
+            <p class="hero-description" id="hero-desc">Crafting experiences from epic adventures to cozy apps.</p>
+            <a href="#projects" class="btn-work" id="btn-view">VIEW OUR WORK</a>
         </div>
     </section>
 
     <section class="section" id="projects">
-        <h2 class="section-title">Our Projects</h2>
+        <h2 class="section-title" id="sec-projects">Our Projects</h2>
         <div class="project-grid">
-            
             <a href="cozy-books.html" class="project-card">
                 <i class="fas fa-book-open"></i>
-                <h3>My Cozy Books</h3>
-                <p>A minimalist library organizer and reading tracker designed for a peaceful experience.</p>
-                <span class="tag" style="color: var(--primary);">BETA AVAILABLE</span>
+                <h3 id="card-cozy-title">My Cozy Books</h3>
+                <p id="card-cozy-desc">A minimalist library organizer and reading tracker designed for a peaceful experience.</p>
+                <span class="tag" id="tag-beta" style="color: var(--primary);">BETA AVAILABLE</span>
             </a>
-
             <div class="project-card">
                 <i class="fas fa-scroll"></i>
-                <h3>Aethelgard RPG</h3>
-                <p>An ambitious turn-based RPG featuring 100 unique zones of progression and mystery.</p>
-                <span class="tag" style="color: #fbbf24;">IN DEVELOPMENT</span>
+                <h3 id="card-rpg-title">Aethelgard RPG</h3>
+                <p id="card-rpg-desc">An ambitious turn-based RPG featuring 100 unique zones of progression and mystery.</p>
+                <span class="tag" id="tag-dev" style="color: #fbbf24;">IN DEVELOPMENT</span>
             </div>
-
         </div>
     </section>
 
     <section class="social-footer">
-        <h2 class="section-title" style="border:none; text-align:center; padding:0;">Connect</h2>
+        <div class="lang-switcher">
+            <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+            <button class="lang-btn" onclick="setLanguage('es')">ES</button>
+            <button class="lang-btn" onclick="setLanguage('pt')">PT</button>
+        </div>
         <div class="social-icons">
-            <a href="https://ko-fi.com/eycodev" title="Ko-fi"><i class="fas fa-coffee"></i></a>
-            <a href="https://www.tiktok.com/@eyco.dev" title="TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.instagram.com/eyco_dev/" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://ko-fi.com/eycodev"><i class="fas fa-coffee"></i></a>
+            <a href="https://www.tiktok.com/@eyco.dev"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.instagram.com/eyco_dev/"><i class="fab fa-instagram"></i></a>
         </div>
         <footer>
             &copy; 2026 21YM Studio. All rights reserved.
             <div class="footer-links">
-                <a href="privacy.html">Privacy Policy</a>
+                <a href="privacy.html" id="link-privacy">Privacy Policy</a>
             </div>
         </footer>
     </section>
 
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        const translations = {
+            en: {
+                projects: "Projects", support: "Support",
+                h1: "THE BEST <span>GAMES AND APPS</span>",
+                desc: "Crafting experiences from epic adventures to cozy apps.",
+                view: "VIEW OUR WORK", secProj: "Our Projects",
+                cozyT: "My Cozy Books", cozyD: "A minimalist library organizer and reading tracker designed for a peaceful experience.",
+                rpgT: "Aethelgard RPG", rpgD: "An ambitious turn-based RPG featuring 100 unique zones of progression and mystery.",
+                beta: "BETA AVAILABLE", dev: "IN DEVELOPMENT", priv: "Privacy Policy"
+            },
+            es: {
+                projects: "Proyectos", support: "Apoyo",
+                h1: "LOS MEJORES <span>JUEGOS Y APPS</span>",
+                desc: "Creando experiencias desde aventuras épicas hasta apps relajantes.",
+                view: "VER TRABAJOS", secProj: "Nuestros Proyectos",
+                cozyT: "My Cozy Books", cozyD: "Un organizador de lectura minimalista diseñado para una experiencia tranquila.",
+                rpgT: "Aethelgard RPG", rpgD: "Un ambicioso RPG por turnos con 100 zonas únicas de progresión y misterio.",
+                beta: "BETA DISPONIBLE", dev: "EN DESARROLLO", priv: "Política de Privacidad"
+            },
+            pt: {
+                projects: "Projetos", support: "Apoio",
+                h1: "OS MELHORES <span>JOGOS E APPS</span>",
+                desc: "Criando experiências de aventuras épicas a aplicativos aconchegantes.",
+                view: "VER TRABALHOS", secProj: "Nossos Projetos",
+                cozyT: "My Cozy Books", cozyD: "Um organizador de leitura minimalista projetado para uma experiência tranquila.",
+                rpgT: "Aethelgard RPG", rpgD: "Um ambicioso RPG por turnos com 100 zonas únicas de progressão e mistério.",
+                beta: "BETA DISPONÍVEL", dev: "EM DESENVOLVIMENTO", priv: "Política de Privacidade"
+            }
+        };
 
+        function setLanguage(lang) {
+            document.getElementById('nav-projects').innerText = translations[lang].projects;
+            document.getElementById('nav-support').innerText = translations[lang].support;
+            document.getElementById('hero-title').innerHTML = translations[lang].h1;
+            document.getElementById('hero-desc').innerText = translations[lang].desc;
+            document.getElementById('btn-view').innerText = translations[lang].view;
+            document.getElementById('sec-projects').innerText = translations[lang].secProj;
+            document.getElementById('card-cozy-title').innerText = translations[lang].cozyT;
+            document.getElementById('card-cozy-desc').innerText = translations[lang].cozyD;
+            document.getElementById('card-rpg-title').innerText = translations[lang].rpgT;
+            document.getElementById('card-rpg-desc').innerText = translations[lang].rpgD;
+            document.getElementById('tag-beta').innerText = translations[lang].beta;
+            document.getElementById('tag-dev').innerText = translations[lang].dev;
+            document.getElementById('link-privacy').innerText = translations[lang].priv;
+            
+            // Estética de botones
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        // Auto-detectar idioma al cargar
+        window.onload = () => {
+            const userLang = navigator.language.substring(0, 2);
+            if (translations[userLang]) setLanguage(userLang);
+            else setLanguage('en');
+        };
+    </script>
 </body>
 </html>
