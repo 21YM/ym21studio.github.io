@@ -38,10 +38,31 @@
             box-sizing: border-box;
         }
 
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 12px; /* Espacio entre logo y texto */
+            transition: 0.3s;
+        }
+
         .logo-img {
-            height: 50px; /* Ajusta la altura de tu logo aquí */
+            height: 45px;
             width: auto;
             display: block;
+        }
+
+        .logo-text {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: white;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .logo-container:hover .logo-text {
+            color: var(--primary);
         }
 
         .nav-links a {
@@ -60,7 +81,6 @@
         /* --- HERO SECTION --- */
         .hero {
             height: 100vh;
-            /* Aquí usamos wall.jpg con un degradado para que el texto resalte */
             background: linear-gradient(rgba(0,0,0,0.3), var(--bg-dark)), 
                         url('wall.jpg'); 
             background-size: cover;
@@ -201,8 +221,9 @@
 <body>
 
     <nav>
-        <a href="#">
+        <a href="#" class="logo-container">
             <img src="logo1.png" alt="21YM Studio Logo" class="logo-img">
+            <span class="logo-text">YM21STUDIO</span>
         </a>
         <div class="nav-links">
             <a href="#projects">Projects</a>
