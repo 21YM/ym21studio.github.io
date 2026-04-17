@@ -85,16 +85,13 @@
         }
 
         /* Efecto Banner de Fondo */
-        .project-card.with-banner {
-            background: linear-gradient(to top, rgba(10, 10, 10, 0.9) 30%, rgba(10, 10, 10, 0.2)), url('banner-cozy.png');
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Si no tienes imagen todavía, usa este fallback elegante */
-        .project-card.with-banner:not([style*="url"]) {
-            background: linear-gradient(45deg, #161b22, #2d1b4d);
-        }
+.project-card.with-banner {
+    /* Aquí combinamos el degradado oscuro para que se lea el texto + la imagen */
+    background: linear-gradient(to top, rgba(10, 10, 10, 0.9) 30%, rgba(10, 10, 10, 0.1)), 
+                url('banner-cozy.png') no-repeat center;
+    background-size: cover;
+    background-color: #2d1b4d; /* Esto solo se verá si la imagen tarda en cargar */
+}
 
         .project-card:hover { transform: translateY(-10px); border-color: var(--primary); }
         
