@@ -67,13 +67,11 @@
         .section-title { font-family: 'Oswald', sans-serif; font-size: 2.5rem; margin-bottom: 40px; text-transform: uppercase; border-left: 4px solid var(--primary); padding-left: 20px; }
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         
-       /* TARJETA CON BANNER ACTUALIZADA */
         .project-card { 
             position: relative;
             background: var(--card-bg); 
             border-radius: 15px; 
             padding: 30px; 
-            padding-bottom: 20px; /* Reducimos el espacio de abajo */
             text-decoration: none; 
             color: white; 
             border: 1px solid rgba(255,255,255,0.05); 
@@ -85,12 +83,9 @@
             min-height: 220px;
         }
 
-        /* Efecto Banner con degradado pegado al borde inferior */
+        /* Efecto Banner de Fondo con degradado suavizado */
         .project-card.with-banner {
-            background: linear-gradient(to top, 
-                        rgba(0, 0, 0, 0.9) 0%,   /* Empieza negro total en el puro borde */
-                        rgba(0, 0, 0, 0.6) 40%,  /* Se va aclarando */
-                        rgba(0, 0, 0, 0) 100%),  /* Transparente arriba */
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.8) 20%, rgba(10, 10, 10, 0) 60%), 
                         url('banner-cozy.png') no-repeat center;
             background-size: cover;
             background-color: #2d1b4d;
