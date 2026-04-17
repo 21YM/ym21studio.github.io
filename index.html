@@ -65,9 +65,8 @@
         /* --- PROJECTS --- */
         .section { padding: 80px 8%; }
         .section-title { font-family: 'Oswald', sans-serif; font-size: 2.5rem; margin-bottom: 40px; text-transform: uppercase; border-left: 4px solid var(--primary); padding-left: 20px; }
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         
-        /* TARJETA CON BANNER */
         .project-card { 
             position: relative;
             background: var(--card-bg); 
@@ -77,26 +76,28 @@
             color: white; 
             border: 1px solid rgba(255,255,255,0.05); 
             transition: 0.3s; 
-            overflow: hidden; /* Importante para que el banner no se salga */
+            overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
             min-height: 220px;
         }
 
-        /* Efecto Banner de Fondo */
-.project-card.with-banner {
-    /* Aquí combinamos el degradado oscuro para que se lea el texto + la imagen */
-    background: linear-gradient(to top, rgba(10, 10, 10, 0.9) 30%, rgba(10, 10, 10, 0.1)), 
-                url('banner-cozy.png') no-repeat center;
-    background-size: cover;
-    background-color: #2d1b4d; /* Esto solo se verá si la imagen tarda en cargar */
-}
+        /* Efecto Banner de Fondo con degradado suavizado */
+        .project-card.with-banner {
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.8) 20%, rgba(10, 10, 10, 0) 60%), 
+                        url('banner-cozy.png') no-repeat center;
+            background-size: cover;
+            background-color: #2d1b4d;
+        }
 
         .project-card:hover { transform: translateY(-10px); border-color: var(--primary); }
         
+        /* Icono solo para tarjetas que NO tienen banner */
         .project-card i { font-size: 2.2rem; color: var(--primary); margin-bottom: 15px; position: relative; z-index: 2; }
+        
         .project-card h3, .project-card p { position: relative; z-index: 2; margin: 5px 0; }
+        .project-card p { font-size: 0.9rem; color: var(--text-dim); }
         
         .tag { position: relative; z-index: 2; display: inline-block; font-size: 0.7rem; font-weight: bold; padding: 5px 12px; border-radius: 20px; background: #334155; margin-top: 15px; width: fit-content; }
 
@@ -143,7 +144,6 @@
         <div class="project-grid">
             
             <a href="cozy-books.html" class="project-card with-banner">
-                <i class="fas fa-book-open"></i>
                 <h3 id="card-cozy-title">My Cozy Books</h3>
                 <p id="card-cozy-desc">A minimalist library organizer and reading tracker.</p>
                 <span class="tag" id="tag-beta" style="color: var(--primary);">BETA AVAILABLE</span>
@@ -179,7 +179,6 @@
     </section>
 
     <script>
-        // ... (Mismo script de traducción que ya tenías)
         const translations = {
             en: {
                 projects: "Projects", support: "Support",
