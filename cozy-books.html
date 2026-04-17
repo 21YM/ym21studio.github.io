@@ -14,20 +14,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --bg: #f7f1e6;       /* Fondo crema extraído de la imagen */
+            --bg: #f7f1e6;
             --card: #ffffff;
-            --accent: #9ba6bd;   /* Azul grisáceo de los stickers */
-            --accent-purple: #c2b0d3; /* Lila pastel de las letras */
-            --accent-green: #bbc8b0;  /* Verde de las plantitas */
-            --coffee: #5c4a40;   /* Marrón oscuro del texto principal */
-            --text-soft: #7a6a5f; /* Texto secundario */
+            --accent: #9ba6bd;
+            --accent-purple: #c2b0d3;
+            --accent-green: #bbc8b0;
+            --coffee: #5c4a40;
+            --text-soft: #7a6a5f;
             --border-cozy: #e8dbcc;
         }
 
         body {
             margin: 0;
             background-color: var(--bg);
-            /* Patrón de puntitos usando el color café muy suave */
             background-image: radial-gradient(rgba(92, 74, 64, 0.1) 1.5px, transparent 1.5px);
             background-size: 25px 25px;
             color: var(--coffee);
@@ -49,11 +48,10 @@
             position: relative;
         }
 
-        /* BANNER SUPERIOR */
         .page-banner {
             width: 100%;
             height: 280px;
-            background-image: url('banner-cozy.png');
+            background-image: url('banner-cozy.jpg');
             background-size: cover;
             background-position: center;
             border-bottom: 2px solid var(--border-cozy);
@@ -79,7 +77,6 @@
             font-size: 1.15rem;
         }
 
-        /* TABS CON COLORES DE STICKERS */
         .tabs {
             display: flex;
             justify-content: center;
@@ -109,8 +106,12 @@
             box-shadow: 0 5px 15px rgba(92, 74, 64, 0.12);
         }
 
-        /* CONTENIDO */
-        .content { display: none; text-align: left; line-height: 1.8; }
+        /* CONTENIDO CENTRADO */
+        .content { 
+            display: none; 
+            text-align: center; /* Cambiado de left a center */
+            line-height: 1.8; 
+        }
         .content.active { display: block; animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
 
         @keyframes fadeIn {
@@ -118,7 +119,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* CARDS DE PASOS - ESTILO STICKER */
         .step-card {
             background: #faf7f2;
             border: 3px dashed var(--border-cozy);
@@ -127,6 +127,7 @@
             border-radius: 28px;
             transition: 0.3s ease;
             position: relative;
+            text-align: center; /* Asegura el centrado interno */
         }
 
         .step-card:hover {
@@ -144,10 +145,10 @@
             font-size: 1.2rem;
         }
 
-        /* BOTONES CON EL LILA DE LA IMAGEN */
         .btn-link {
             display: inline-flex;
             align-items: center;
+            justify-content: center; /* Centra el contenido del botón */
             gap: 12px;
             background: var(--accent-purple);
             color: white;
@@ -156,7 +157,7 @@
             text-decoration: none;
             font-weight: bold;
             transition: 0.3s;
-            box-shadow: 0 6px 0px #9a88ad; /* Sombra sólida para efecto pegatina/sticker */
+            box-shadow: 0 6px 0px #9a88ad;
         }
 
         .btn-link:hover { 
@@ -226,7 +227,7 @@
                         <i class="fab fa-google-play"></i> Convertirse en tester
                     </a>
                 </div>
-                <p style="text-align: center; font-weight: 600;">✨ ¡Listo! Ya puedes descargarla desde la Play Store.</p>
+                <p style="font-weight: 600;">✨ ¡Listo! Ya puedes descargarla desde la Play Store.</p>
             </div>
 
             <div id="en" class="content">
@@ -243,24 +244,24 @@
                         <i class="fab fa-google-play"></i> Become a tester
                     </a>
                 </div>
-                <p style="text-align: center; font-weight: 600;">✨ That's it! You can now download it from the Play Store.</p>
+                <p style="font-weight: 600;">✨ That's it! You can now download it from the Play Store.</p>
             </div>
 
             <div id="pt" class="content">
                 <p>Olá! ☕📚 Preciso da sua ajuda. Estou a um passo de lançar meu app e adoraria que você testasse primeiro.</p>
-                <div id="step1" class="step-card">
+                <div class="step-card">
                     <span class="step-title">1️⃣ Entre no clube de testers:</span>
                     <a href="https://groups.google.com/g/ym21studio-testers" class="btn-link" target="_blank">
                         <i class="fas fa-users"></i> Participar do grupo
                     </a>
                 </div>
-                <div id="step2" class="step-card">
+                <div class="step-card">
                     <span class="step-title">2️⃣ Aceite o convite:</span>
                     <a href="https://play.google.com/apps/testing/com.ym21.cozy_books" class="btn-link" target="_blank">
                         <i class="fab fa-google-play"></i> Tornar-se um testador
                     </a>
                 </div>
-                <p style="text-align: center; font-weight: 600;">✨ E pronto! Agora você já pode baixá-lo na Play Store.</p>
+                <p style="font-weight: 600;">✨ E pronto! Agora você já pode baixá-lo na Play Store.</p>
             </div>
 
             <a href="index.html" class="back-link" id="back-txt">← Back to 21YM Studio</a>
