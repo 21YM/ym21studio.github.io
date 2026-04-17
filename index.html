@@ -67,12 +67,11 @@
         .section-title { font-family: 'Oswald', sans-serif; font-size: 2.5rem; margin-bottom: 40px; text-transform: uppercase; border-left: 4px solid var(--primary); padding-left: 20px; }
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         
-        /* 1. Ajuste de la tarjeta base */
         .project-card { 
             position: relative;
             background: var(--card-bg); 
             border-radius: 15px; 
-            padding: 25px; /* Ajustamos padding general */
+            padding: 25px; 
             text-decoration: none; 
             color: white; 
             border: 1px solid rgba(255,255,255,0.05); 
@@ -82,10 +81,10 @@
             flex-direction: column;
             justify-content: flex-end;
             min-height: 220px;
-            z-index: 1; /* Para que el contenido esté arriba */
+            z-index: 1;
         }
 
-        /* 2. Banner de fondo (sin degradado aquí) */
+        /* Banner de fondo */
         .project-card.with-banner {
             background-image: url('banner-cozy.png');
             background-size: cover;
@@ -93,27 +92,26 @@
             background-repeat: no-repeat;
         }
 
-        /* 3. LA SOLUCIÓN: Capa de sombra matemática que llega hasta el final */
+        /* SOMBRA "OVERFLOW" (Sella la brecha de color abajo) */
         .project-card.with-banner::after {
             content: "";
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
-            right: 0;
-            height: 100%; /* Cubre toda la tarjeta */
-            /* Degradado que empieza negro abajo (0%) y se aclara arriba */
+            width: 100%;
+            /* Sobresale 10px por abajo para asegurar que no haya hilos de color */
+            height: calc(100% + 10px); 
             background: linear-gradient(to top, 
-                        rgba(0, 0, 0, 0.95) 0%, 
-                        rgba(0, 0, 0, 0.7) 30%, 
-                        rgba(0, 0, 0, 0) 100%);
-            z-index: -1; /* Se queda detrás del texto pero delante de la imagen */
+                rgba(0, 0, 0, 1) 10px,   /* Negro total en el área que sobresale */
+                rgba(0, 0, 0, 0.8) 40%, 
+                rgba(0, 0, 0, 0) 100%);
+            z-index: -1;
+            pointer-events: none;
         }
 
         .project-card:hover { transform: translateY(-10px); border-color: var(--primary); }
         
-        /* Icono solo para tarjetas que NO tienen banner */
         .project-card i { font-size: 2.2rem; color: var(--primary); margin-bottom: 15px; position: relative; z-index: 2; }
-        
         .project-card h3, .project-card p { position: relative; z-index: 2; margin: 5px 0; }
         .project-card p { font-size: 0.9rem; color: var(--text-dim); }
         
@@ -243,7 +241,6 @@
             document.getElementById('link-privacy').innerText = translations[lang].priv;
             
             document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-            // Pequeño truco para resaltar el botón
             document.querySelectorAll('.lang-btn').forEach(b => {
                 if(b.innerText.toLowerCase() === lang) b.classList.add('active');
             });
