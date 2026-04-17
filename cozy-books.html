@@ -9,27 +9,28 @@
 
     <meta property="og:title" content="Join My Cozy Books Beta">
     <meta property="og:description" content="Help us test our minimalist reading sanctuary.">
-    <meta property="og:image" content="banner-cozy.jpg">
+    <meta property="og:image" content="banner-cozy.png">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --bg: #fdfaf5;       /* Crema de fondo del banner */
+            --bg: #f7f1e6;       /* Fondo crema extraído de la imagen */
             --card: #ffffff;
-            --accent: #9b86bd;   /* Lila del logo */
-            --accent-soft: #e5dff2;
-            --coffee: #6f4e37;   /* Marrón café para textos */
-            --text: #5a4a42;     /* Texto suave */
-            --pastel-pink: #f9d8d6;
-            --pastel-yellow: #fcf1cc;
+            --accent: #9ba6bd;   /* Azul grisáceo de los stickers */
+            --accent-purple: #c2b0d3; /* Lila pastel de las letras */
+            --accent-green: #bbc8b0;  /* Verde de las plantitas */
+            --coffee: #5c4a40;   /* Marrón oscuro del texto principal */
+            --text-soft: #7a6a5f; /* Texto secundario */
+            --border-cozy: #e8dbcc;
         }
 
         body {
             margin: 0;
             background-color: var(--bg);
-            background-image: radial-gradient(var(--pastel-yellow) 1px, transparent 1px);
-            background-size: 30px 30px; /* Puntitos sutiles de fondo */
-            color: var(--text);
+            /* Patrón de puntitos usando el color café muy suave */
+            background-image: radial-gradient(rgba(92, 74, 64, 0.1) 1.5px, transparent 1.5px);
+            background-size: 25px 25px;
+            color: var(--coffee);
             font-family: 'Inter', sans-serif;
             display: flex;
             justify-content: center;
@@ -41,9 +42,9 @@
             width: 100%;
             background: var(--card);
             border-radius: 40px;
-            overflow: hidden; /* Para el banner arriba */
-            box-shadow: 0 20px 50px rgba(111, 78, 55, 0.1);
-            border: 2px solid #eee5d8;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(92, 74, 64, 0.15);
+            border: 2px solid var(--border-cozy);
             margin-top: 20px;
             position: relative;
         }
@@ -51,11 +52,11 @@
         /* BANNER SUPERIOR */
         .page-banner {
             width: 100%;
-            height: 250px;
+            height: 280px;
             background-image: url('banner-cozy.jpg');
             background-size: cover;
             background-position: center;
-            border-bottom: 2px solid #eee5d8;
+            border-bottom: 2px solid var(--border-cozy);
         }
 
         .content-padding {
@@ -65,71 +66,73 @@
 
         h1 { 
             color: var(--coffee); 
-            font-size: 2.5rem; 
+            font-size: 2.6rem; 
             margin: 10px 0;
-            font-family: 'Inter', sans-serif;
             font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .description { 
             font-style: italic; 
-            color: #8e7d71; 
-            margin-bottom: 30px; 
-            font-size: 1.1rem;
+            color: var(--text-soft); 
+            margin-bottom: 35px; 
+            font-size: 1.15rem;
         }
 
-        /* TABS COZY */
+        /* TABS CON COLORES DE STICKERS */
         .tabs {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-bottom: 35px;
-            background: #f1ede4;
-            padding: 6px;
-            border-radius: 20px;
+            gap: 12px;
+            margin-bottom: 40px;
+            background: #f0e6da;
+            padding: 8px;
+            border-radius: 22px;
             display: inline-flex;
         }
 
         .tab-btn {
-            padding: 10px 25px;
+            padding: 12px 28px;
             border: none;
             background: none;
             cursor: pointer;
-            border-radius: 15px;
+            border-radius: 16px;
             font-weight: 700;
-            color: #a09383;
+            color: var(--text-soft);
             transition: 0.3s;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         .tab-btn.active {
             background: var(--card);
             color: var(--coffee);
-            box-shadow: 0 4px 12px rgba(111, 78, 55, 0.1);
+            box-shadow: 0 5px 15px rgba(92, 74, 64, 0.12);
         }
 
         /* CONTENIDO */
-        .content { display: none; text-align: left; line-height: 1.7; }
-        .content.active { display: block; animation: fadeIn 0.5s ease; }
+        .content { display: none; text-align: left; line-height: 1.8; }
+        .content.active { display: block; animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* CARDS DE PASOS */
+        /* CARDS DE PASOS - ESTILO STICKER */
         .step-card {
-            background: var(--bg);
-            border: 2px dashed #d1c1b1;
-            padding: 25px;
-            margin: 20px 0;
-            border-radius: 25px;
-            transition: 0.3s;
+            background: #faf7f2;
+            border: 3px dashed var(--border-cozy);
+            padding: 28px;
+            margin: 25px 0;
+            border-radius: 28px;
+            transition: 0.3s ease;
+            position: relative;
         }
 
         .step-card:hover {
             border-style: solid;
-            border-color: var(--accent);
+            border-color: var(--accent-purple);
+            transform: scale(1.01);
             background: #fff;
         }
 
@@ -137,55 +140,61 @@
             color: var(--coffee);
             font-weight: 800;
             display: block;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
+            margin-bottom: 18px;
+            font-size: 1.2rem;
         }
 
-        /* BOTONES */
+        /* BOTONES CON EL LILA DE LA IMAGEN */
         .btn-link {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            background: var(--accent);
+            gap: 12px;
+            background: var(--accent-purple);
             color: white;
-            padding: 14px 25px;
-            border-radius: 15px;
+            padding: 15px 30px;
+            border-radius: 18px;
             text-decoration: none;
             font-weight: bold;
             transition: 0.3s;
-            box-shadow: 0 6px 0px #7b689a; /* Efecto 3D suave */
+            box-shadow: 0 6px 0px #9a88ad; /* Sombra sólida para efecto pegatina/sticker */
         }
 
         .btn-link:hover { 
             transform: translateY(2px); 
-            box-shadow: 0 2px 0px #7b689a;
+            box-shadow: 0 3px 0px #9a88ad;
+            filter: brightness(1.05);
         }
 
         .back-link {
             display: inline-block;
-            margin-top: 40px;
-            color: #bcaaa4;
+            margin-top: 45px;
+            color: var(--text-soft);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 600;
             transition: 0.3s;
+            padding: 8px 15px;
+            border-radius: 10px;
         }
 
-        .back-link:hover { color: var(--coffee); }
+        .back-link:hover { 
+            background-color: rgba(187, 200, 176, 0.2);
+            color: var(--coffee); 
+        }
 
-        /* Iconos decorativos */
-        .floating-cat {
+        .floating-decoration {
             position: absolute;
-            bottom: 20px;
-            right: 20px;
-            font-size: 2rem;
-            opacity: 0.2;
+            font-size: 2.2rem;
+            opacity: 0.25;
+            pointer-events: none;
         }
 
         @media (max-width: 600px) {
-            .content-padding { padding: 25px; }
-            h1 { font-size: 1.8rem; }
-            .page-banner { height: 180px; }
+            .content-padding { padding: 30px 20px; }
+            h1 { font-size: 1.9rem; }
+            .page-banner { height: 200px; }
+            .tabs { width: 100%; display: flex; }
+            .tab-btn { padding: 10px; flex: 1; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -217,7 +226,7 @@
                         <i class="fab fa-google-play"></i> Convertirse en tester
                     </a>
                 </div>
-                <p style="text-align: center;">✨ ¡Listo! Ya puedes descargarla desde la Play Store.</p>
+                <p style="text-align: center; font-weight: 600;">✨ ¡Listo! Ya puedes descargarla desde la Play Store.</p>
             </div>
 
             <div id="en" class="content">
@@ -234,28 +243,30 @@
                         <i class="fab fa-google-play"></i> Become a tester
                     </a>
                 </div>
-                <p style="text-align: center;">✨ That's it! You can now download it from the Play Store.</p>
+                <p style="text-align: center; font-weight: 600;">✨ That's it! You can now download it from the Play Store.</p>
             </div>
 
             <div id="pt" class="content">
                 <p>Olá! ☕📚 Preciso da sua ajuda. Estou a um passo de lançar meu app e adoraria que você testasse primeiro.</p>
-                <div class="step-card">
+                <div id="step1" class="step-card">
                     <span class="step-title">1️⃣ Entre no clube de testers:</span>
                     <a href="https://groups.google.com/g/ym21studio-testers" class="btn-link" target="_blank">
                         <i class="fas fa-users"></i> Participar do grupo
                     </a>
                 </div>
-                <div class="step-card">
+                <div id="step2" class="step-card">
                     <span class="step-title">2️⃣ Aceite o convite:</span>
                     <a href="https://play.google.com/apps/testing/com.ym21.cozy_books" class="btn-link" target="_blank">
                         <i class="fab fa-google-play"></i> Tornar-se um testador
                     </a>
                 </div>
-                <p style="text-align: center;">✨ E pronto! Agora você já puede baixá-lo na Play Store.</p>
+                <p style="text-align: center; font-weight: 600;">✨ E pronto! Agora você já pode baixá-lo na Play Store.</p>
             </div>
 
             <a href="index.html" class="back-link" id="back-txt">← Back to 21YM Studio</a>
-            <div class="floating-cat">🐱</div>
+            
+            <div class="floating-decoration" style="bottom: 20px; right: 30px;">🐱</div>
+            <div class="floating-decoration" style="bottom: 120px; left: 20px; transform: rotate(-15deg);">🌿</div>
         </div>
     </div>
 
