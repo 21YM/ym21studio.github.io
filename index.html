@@ -67,11 +67,12 @@
         .section-title { font-family: 'Oswald', sans-serif; font-size: 2.5rem; margin-bottom: 40px; text-transform: uppercase; border-left: 4px solid var(--primary); padding-left: 20px; }
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         
+        /* 1. Ajuste de la tarjeta base */
         .project-card { 
             position: relative;
             background: var(--card-bg); 
             border-radius: 15px; 
-            padding: 30px; 
+            padding: 25px; /* Ajustamos padding general */
             text-decoration: none; 
             color: white; 
             border: 1px solid rgba(255,255,255,0.05); 
@@ -81,14 +82,31 @@
             flex-direction: column;
             justify-content: flex-end;
             min-height: 220px;
+            z-index: 1; /* Para que el contenido esté arriba */
         }
 
-        /* Efecto Banner de Fondo con degradado suavizado */
+        /* 2. Banner de fondo (sin degradado aquí) */
         .project-card.with-banner {
-            background: linear-gradient(to top, rgba(10, 10, 10, 0.8) 20%, rgba(10, 10, 10, 0) 60%), 
-                        url('banner-cozy.png') no-repeat center;
+            background-image: url('banner-cozy.png');
             background-size: cover;
-            background-color: #2d1b4d;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* 3. LA SOLUCIÓN: Capa de sombra matemática que llega hasta el final */
+        .project-card.with-banner::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%; /* Cubre toda la tarjeta */
+            /* Degradado que empieza negro abajo (0%) y se aclara arriba */
+            background: linear-gradient(to top, 
+                        rgba(0, 0, 0, 0.95) 0%, 
+                        rgba(0, 0, 0, 0.7) 30%, 
+                        rgba(0, 0, 0, 0) 100%);
+            z-index: -1; /* Se queda detrás del texto pero delante de la imagen */
         }
 
         .project-card:hover { transform: translateY(-10px); border-color: var(--primary); }
