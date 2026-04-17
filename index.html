@@ -71,7 +71,7 @@
             position: relative;
             background: var(--card-bg); 
             border-radius: 15px; 
-            padding: 25px; 
+            padding: 20px; 
             text-decoration: none; 
             color: white; 
             border: 1px solid rgba(255,255,255,0.05); 
@@ -81,38 +81,41 @@
             flex-direction: column;
             justify-content: flex-end;
             min-height: 220px;
-            z-index: 1;
         }
 
-        /* Banner de fondo */
-        .project-card.with-banner {
-            background-image: url('banner-cozy.png');
+        /* CAPA DE FONTE (Banner) */
+        .card-banner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
 
-        /* SOMBRA "OVERFLOW" (Sella la brecha de color abajo) */
-        .project-card.with-banner::after {
+        /* SOMBRA "OVERFLOW" (Sella la brecha de color abajo al 100%) */
+        .card-banner::after {
             content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            /* Sobresale 10px por abajo para asegurar que no haya hilos de color */
-            height: calc(100% + 10px); 
+            /* Sobresale por abajo para asegurar cobertura total del borde redondeado */
+            height: calc(100% + 5px); 
             background: linear-gradient(to top, 
-                rgba(0, 0, 0, 1) 10px,   /* Negro total en el área que sobresale */
+                rgba(0, 0, 0, 1) 5px,   /* Negro absoluto en la base */
                 rgba(0, 0, 0, 0.8) 40%, 
                 rgba(0, 0, 0, 0) 100%);
-            z-index: -1;
-            pointer-events: none;
+            z-index: 1;
         }
 
         .project-card:hover { transform: translateY(-10px); border-color: var(--primary); }
         
         .project-card i { font-size: 2.2rem; color: var(--primary); margin-bottom: 15px; position: relative; z-index: 2; }
-        .project-card h3, .project-card p { position: relative; z-index: 2; margin: 5px 0; }
+        .project-card h3, .project-card p { position: relative; z-index: 2; margin: 3px 0; }
         .project-card p { font-size: 0.9rem; color: var(--text-dim); }
         
         .tag { position: relative; z-index: 2; display: inline-block; font-size: 0.7rem; font-weight: bold; padding: 5px 12px; border-radius: 20px; background: #334155; margin-top: 15px; width: fit-content; }
@@ -159,7 +162,8 @@
         <h2 class="section-title" id="sec-projects">Our Projects</h2>
         <div class="project-grid">
             
-            <a href="cozy-books.html" class="project-card with-banner">
+            <a href="cozy-books.html" class="project-card">
+                <div class="card-banner" style="background-image: url('banner-cozy.png');"></div>
                 <h3 id="card-cozy-title">My Cozy Books</h3>
                 <p id="card-cozy-desc">A minimalist library organizer and reading tracker.</p>
                 <span class="tag" id="tag-beta" style="color: var(--primary);">BETA AVAILABLE</span>
